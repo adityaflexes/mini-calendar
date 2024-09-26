@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calendar</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: cursive;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: blueviolet;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 350px;
+            height: 400px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            overflow: hidden;
+            font-weight: 700;
+            animation: zoomIn .5s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .month-box {
+            background: rgb(252, 23, 23);
+            padding: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .day-box,
+        .year-box {
+            color: #555;
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .dayDate-box {
+            font-size: 9rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="month-box"></div>
+        <div class="day-box"></div>
+        <div class="dayDate-box"></div>
+        <div class="year-box"></div>
+    </div>
+
+    <script>
+        const monthBox = document.querySelector('.month-box');
+        const dayBox = document.querySelector('.day-box');
+        const dayDateBox = document.querySelector('.dayDate-box');
+        const yearBox = document.querySelector('.year-box');
+
+        const currDate = new Date();
+        const month = currDate.toLocaleString('default', { month: 'long' });
+        monthBox.textContent = month;
+        const day = currDate.toLocaleString('default', { weekday: 'long' });
+        dayBox.textContent = day
+        const dayDate = currDate.getDate()
+        dayDateBox.textContent = dayDate;
+        const year = currDate.getFullYear()
+        yearBox.textContent = year
+
+
+
+    </script>
+</body>
+
+</html>  
